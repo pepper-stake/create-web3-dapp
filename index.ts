@@ -15,8 +15,6 @@ import open from "open";
 import { smartContractWizard } from "./helpers/smartContractsWizard/smartContractWizard.js";
 import { buildSmartContract } from "./helpers/smartContractsWizard/smartContractBuilder.js";
 import kill from "./helpers/utils/kill.js";
-import { Multibar } from "./helpers/utils/progressBar.js";
-import cliProgress from "cli-progress";
 
 console.log(
 	chalk.blue(`
@@ -63,8 +61,8 @@ if (
 let projectPath = "";
 
 // Gets project name
-ON_DEATH(function (signal, err) {
-	console.log("yo");
+ON_DEATH(function () {
+	
 });
 async function run() {
 	let step = 0;
@@ -248,8 +246,6 @@ async function run() {
 
 			case 4:
 				try {
-					let useBackend;
-
 					const backendProvider = await prompts({
 						type: "select",
 						name: "backendProvider",
@@ -289,6 +285,7 @@ async function run() {
 				} catch (e) {
 					selfDestroy(e);
 				}
+				break;
 			case 5:
 				if (context.dappInfo.useBackend) {
 					const hasContract: boolean = await prompts({
@@ -347,7 +344,7 @@ async function run() {
 				} catch (e) {
 					selfDestroy(e);
 				}
-
+				break;
 			case 7:
 				try {
 					const alchemyAPIKey: string = await prompts({

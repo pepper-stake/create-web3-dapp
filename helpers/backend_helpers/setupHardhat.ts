@@ -1,4 +1,3 @@
-import chalk from "chalk";
 import cliProgress from "cli-progress";
 import path from "path";
 import { createEnv } from "../utils/createEnv.js";
@@ -19,9 +18,10 @@ export const setUpHardhat = (dappInfo: DappInfo, projectPath) => {
 	fse.mkdirSync(path.join(projectPath, "backend"));
 	fse.copySync(hardhatTemplate, path.join(projectPath, "backend"));
 
-	
-	createEnv({...dappInfo.apiKeys, ETHERSCAN_API_KEY: "", PRIVATE_KEY: ""}, path.join(projectPath, "backend"));
-	
+	createEnv(
+		{ ...dappInfo.apiKeys, ETHERSCAN_API_KEY: "", PRIVATE_KEY: "" },
+		path.join(projectPath, "backend")
+	);
 
 	const writeStream = createWriteStream(
 		path.join(projectPath, "backend", "hardhat.config.js")
@@ -36,22 +36,18 @@ export const setUpHardhat = (dappInfo: DappInfo, projectPath) => {
 			hardhat: {},
 			[dappInfo.chain]: {
 				accounts: "[`${process.env.PRIVATE_KEY}`]",
-				url: generateAlchemyURL(
-					dappInfo.chain,
-				),
+				url: generateAlchemyURL(dappInfo.chain),
 			},
 		},
 		etherscan: {
-			apiKey: "`${process.env.ETHERSCAN_API_KEY}`"
-		}
+			apiKey: "`${process.env.ETHERSCAN_API_KEY}`",
+		},
 	};
 
 	if (dappInfo.isTestnet && dappInfo.testnet) {
 		modules.networks[dappInfo.testnet] = {
 			accounts: "[`${process.env.PRIVATE_KEY}`]",
-			url: generateAlchemyURL(
-				dappInfo.testnet,
-			),
+			url: generateAlchemyURL(dappInfo.testnet),
 		};
 	}
 

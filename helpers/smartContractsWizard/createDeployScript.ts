@@ -2,7 +2,6 @@ import path from "path";
 import fs from "fs";
 import { mkdir } from "../utils/mkdir.js";
 import { SmartContractInfo } from "../../interfaces/SmartContractInfo.js";
-import chalk from "chalk";
 import { isERC721 } from "./utils/isERC721.js";
 import { generateERC721DeploymentScript } from "./generateERC721DeploymentScript.js";
 

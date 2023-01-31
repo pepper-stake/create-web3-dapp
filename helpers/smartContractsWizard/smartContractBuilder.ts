@@ -5,7 +5,6 @@ import { SmartContractInfo } from "../../interfaces/SmartContractInfo.js";
 import { getSmartContractDependencies } from "./utils/getSmartContractDependencies.js";
 import { getSmartContractSuperClasses } from "./utils/getSmartContractSuperClasses.js";
 import { isERC721 } from "./utils/isERC721.js";
-import chalk from "chalk";
 import { mkdir } from "../utils/mkdir.js";
 import { createDeployScript } from "./createDeployScript.js";
 export const buildSmartContract = (

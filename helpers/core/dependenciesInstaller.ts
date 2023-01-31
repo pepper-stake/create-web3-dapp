@@ -1,5 +1,4 @@
 import { execSync } from "child_process";
-import chalk from "chalk";
 import { selfDestroy } from "./selfDestroy.js";
 import path from "path";
 import { generatePackageDotJson } from "../utils/generatePackageDotJson.js";

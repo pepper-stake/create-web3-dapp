@@ -55,7 +55,7 @@ export const smartContractWizard = async (): Promise<
 					],
 					hint: "- Space to select. Return to submit",
 				}).then((data) => data.contractStandard);
-				if (await checkIfQuit(standard, null)) {
+				if (await checkIfQuit(standard)) {
 					quit = true;
 					return;
 				}
@@ -86,7 +86,7 @@ export const smartContractWizard = async (): Promise<
 						hint: "- Space to select. Return to submit",
 					}).then((data) => data.contractStandard);
 				}
-				if (await checkIfQuit(standard, null)) {
+				if (await checkIfQuit(standard)) {
 					quit = true;
 					return;
 				}
@@ -115,7 +115,7 @@ export const smartContractWizard = async (): Promise<
 					data.contractSymbol.trim().replace(/[\W_]+/g, "")
 				);
 				while (!symbol.length) {
-					const quit = await prompts({
+					symbol = await prompts({
 						type: "text",
 						name: "contractName",
 						initial: `MyContract`,

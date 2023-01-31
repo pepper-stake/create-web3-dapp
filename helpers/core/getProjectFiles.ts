@@ -2,19 +2,17 @@ import { selfDestroy } from "./selfDestroy.js";
 import { execSync } from "child_process";
 import path from "path";
 import fse from "fs-extra";
-import chalk from "chalk";
 import { setUpHardhat } from "../backend_helpers/setupHardhat.js";
 import { createEnv } from "../utils/createEnv.js";
 import { copyFile } from "../utils/copyFile.js";
 import { cleanUpFiles } from "../utils/cleanUpFiles.js";
 import BuilderContext from "../../interfaces/BuilderContext.js";
 import { getDefaultRainbowkitChain } from "../utils/getDefaultRainbowkitChain.js";
-import { Multibar } from "../utils/progressBar.js";
 
-export const getProjectFiles = (
-	{ resolvedProjectPath, dappInfo }: BuilderContext,
-	progressBar?: any
-) => {
+export const getProjectFiles = ({
+	resolvedProjectPath,
+	dappInfo,
+}: BuilderContext) => {
 	try {
 		process.chdir(resolvedProjectPath);
 
@@ -67,7 +65,6 @@ export const getProjectFiles = (
 		);
 		copyFile("utils", "README.md", process.cwd());
 
-		
 		cleanUpFiles(dappInfo.useBackend);
 	} catch (e) {
 		selfDestroy(e);
