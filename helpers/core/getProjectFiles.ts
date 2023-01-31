@@ -26,6 +26,7 @@ export const getProjectFiles = (
 			"templates",
 			dappInfo.isEVM ? "evm" : "solana",
 			"core"
+			
 		);
 		if (dappInfo.useBackend) {
 			fse.copySync(template, path.join(process.cwd(), "frontend"));
