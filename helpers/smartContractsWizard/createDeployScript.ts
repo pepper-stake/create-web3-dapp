@@ -7,7 +7,6 @@ import { isERC721 } from "./utils/isERC721.js";
 import { generateERC721DeploymentScript } from "./generateERC721DeploymentScript.js";
 
 export const createDeployScript = (smartContractInfo: SmartContractInfo) => {
-	console.log(chalk.yellow("Creating Smart Contracts..."));
 	mkdir(path.join(process.cwd(), "backend", "scripts"));
 	const writeStream = fs.createWriteStream(
 		path.join(

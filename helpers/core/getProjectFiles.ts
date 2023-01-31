@@ -67,6 +67,7 @@ export const getProjectFiles = (
 		);
 		copyFile("utils", "README.md", process.cwd());
 
+		
 		cleanUpFiles(dappInfo.useBackend);
 	} catch (e) {
 		selfDestroy(e);
