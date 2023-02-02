@@ -10,7 +10,6 @@ async function main() {
 
 	console.log("${name} deployed to:", contract.address);
 }
-
 main().catch((error) => {
 	console.error(error);
 	process.exitCode = 1;
