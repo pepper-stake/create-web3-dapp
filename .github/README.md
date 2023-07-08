@@ -21,6 +21,12 @@
 </center>
 
 
+
+
+-   [Creating an App](#creating-an-app) – How to create a new app.
+-   [Docs](https://docs.alchemy.com/docs/create-web3-dapp) – How to develop apps bootstrapped with Create Web3 Dapp
+
+
 This package includes the global command to start the Create Web3 DApp CLI builder.
 
 Please refer to this package's documentation and the following links for an in depth explanation:
